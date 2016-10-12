@@ -1,142 +1,138 @@
-    <html>
-    <head>
-	    <meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0">
-    <title>Web Messaging Demo</title>
-    </head>
-    <body>
-    Username: <input id="lp_username" style="border: solid 2px #000">
-    <button id="lp_btn_login" style="color:red; ">Login</button>
-
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="user-scalable=0, width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0">
+    <title>Welcome to the Web Messaging world</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script>
-    function getURLParams(search) {
-	var queryParams = {}, queryArray, singleQuery;
-	queryArray = search.substr(1).split("&");
-	for (var i = 0; i < queryArray.length; i++) {
-	    if (queryArray[i].indexOf("=") > -0) {
-		singleQuery = queryArray[i].split("=");
-		if (singleQuery.length == 2) {
-		    queryParams[decodeURIComponent(singleQuery[0])] = decodeURIComponent(singleQuery[1]);
-		}
-	    }
-	}
-	return queryParams;
-    }
+</head>
+<body>
+<section>
+    <div class="title">Welcome to the</div>
+    <div class="feature">Web Messaging</div>
+    <div class="title">World</div>
+    <form id="lp_form">
+        <p>
+            Account: <input id="lp_account" required>
+        </p>
 
-var cookieActions = {
-    delimiter: '|',
-    set: function (key, values, domain) {
-	if (typeof key === 'string' && values.join && typeof (values.join) === "function") {
-	    var cookieString = encodeURIComponent(key) + '=' + encodeURIComponent(values.join(this.delimiter)) + ';path=/';
-	    if (typeof domain !== 'undefined') {
-		cookieString += ';domain=' + domain;
-	    }
-	    document.cookie = cookieString;
-	    return true;
-	}
-    },
-    get: function (key) {
-	var token = "\\$" + "&"; // Please do not remove the string concat since grunt replace will fail to replace the string otherwise!!!!!!!!
-	if (typeof key === 'string') {
-	    var val = (document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(key).replace(/[\-\.\+\*]/g, token) + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1") || null);
-	    if (typeof val === 'string') {
-		var decoded = decodeURIComponent(val);
-		if (decoded) {
-		    return decoded.split(this.delimiter);
-		}
-	    }
-	}
-    },
-    remove: function (key, domain) {
-	if (typeof key === 'string') {
-	    this.set(key, ['null'], domain);
-	    return true;
-	}
-    }
-};
-</script>
-    <script>
-    var queryParamSite = getURLParams(window.location.search).site;
-</script>
-<script language="javascript">
+        <p>
+            Username: <input id="lp_username" required>
+        </p>
+        <button id="lp_btn_login" type="submit">Login</button>
+    </form>
+</section>
+<footer>
+    <img src="liveperson_logo.png">
+
+    <div class="credit" about='https://farm8.static.flickr.com/7123/7663247816_4ef6c4d123_m.jpg'>&quot;<a
+            href='https://www.flickr.com/photos/bethscupham/7663247816/' target='_blank'>earth</a>&quot;&nbsp;(<a
+            rel='license' href='https://creativecommons.org/licenses/by/2.0/' target='_blank'>CC BY 2.0</a>)&nbsp;by&nbsp;<a
+            href='https://www.flickr.com/people/bethscupham/' target='_blank'>&nbsp;</a><a
+            xmlns:cc='http://creativecommons.org/ns#' rel='cc:attributionURL' property='cc:attributionName'
+            href='https://www.flickr.com/people/bethscupham/' target='_blank'>Dreaming in the deep south</a><a
+            href='http://www.imagecodr.org/' target='_blank'>&nbsp;</a></div>
+</footer>
+
+<script src="script.js"></script>
 <!-- BEGIN LivePerson Monitor. -->
-window.lpTag=window.lpTag||{};if(typeof window.lpTag._tagCount==='undefined'){
-    window.lpTag={site: queryParamSite || '',
-    section:lpTag.section||'',autoStart:lpTag.autoStart===false?false:true,ovr:lpTag.ovr||{domain : 'tlv_plankton3.dev.lprnd.net',tagjs : 'tlv_plankton4.dev.lprnd.net'},_v:'1.5.1',_tagCount:1,protocol:location.protocol,events:{bind:function(app,ev,fn){lpTag.defer(function(){lpTag.events.bind(app,ev,fn)},0)},trigger:function(app,ev,json){lpTag.defer(function(){lpTag.events.trigger(app,ev,json)},1)}},defer:function(fn,fnType){if(fnType==0){this._defB=this._defB||[];this._defB.push(fn)}else if(fnType==1){this._defT=this._defT||[];this._defT.push(fn)}else{this._defL=this._defL||[];this._defL.push(fn)}},load:function(src,chr,id){var t=this;setTimeout(function(){t._load(src,chr,id)},0)},_load:function(src,chr,id){var url=src;if(!src){url=this.protocol+'//'+((this.ovr&&this.ovr.domain)?this.ovr.domain:'lptag.liveperson.net')+'/tag/tag.js?site='+this.site}var s=document.createElement('script');s.setAttribute('charset',chr?chr:'UTF-8');if(id){s.setAttribute('id',id)}s.setAttribute('src',url);document.getElementsByTagName('head').item(0).appendChild(s)},init:function(){this._timing=this._timing||{};this._timing.start=(new Date()).getTime();var that=this;if(window.attachEvent){window.attachEvent('onload',function(){that._domReady('domReady')})}else{window.addEventListener('DOMContentLoaded',function(){that._domReady('contReady')},false);window.addEventListener('load',function(){that._domReady('domReady')},false)}if(typeof(window._lptStop)=='undefined'){this.load()}},start:function(){this.autoStart=true},_domReady:function(n){if(!this.isDom){this.isDom=true;this.events.trigger('LPT','DOM_READY',{t:n})}this._timing[n]=(new Date()).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],ev:lpTag.ev||[]};lpTag.init()}else{window.lpTag._tagCount+=1}
-<!-- END LivePerson Monitor. -->
-</script>
-
-    <script>
-    var username = getURLParams(window.location.search).username || "";
-var url = "https://ec2-52-16-155-233.eu-west-1.compute.amazonaws.com:1980";
-
-if (username) {
-    $("#lp_username").attr("disabled", "disabled");
-    $("#lp_username").val(username);
-    $("#lp_btn_login").hide();
-
-    lpTag.sdes.push({"type": "ctmrinfo", "info": {customerId: username}});
-
-    window.LPJsMethodName = function (callback) {
-	$.ajax({
-	    url: url + '/login',
-	    contentType: "application/json",
-	    data: {
-		username: username
-	    },
-	    success: function (data) {
-		$.ajax(url + "/generateSsoKey?rt=json&username=" + username, {
-		    type: 'get',
-		    error: function (XMLHttpRequest, textStatus, errorThrown) {
-			if (XMLHttpRequest.responseJSON === undefined || XMLHttpRequest.responseJSON.message === undefined) {
-			    callback('UNKNOWN ERROR', 'error occured');
-			} else {
-			    callback('ERROR', XMLHttpRequest.responseJSON.message);
-			}
-
-		    },
-		    success: function (ssoData) {
-			callback(ssoData.ssoKey);
-
-		    }
-		});
-	    }
-	});
+<script language="javascript">
+    window.lpTag = window.lpTag || {};
+    if (typeof window.lpTag._tagCount === 'undefined') {
+        window.lpTag = {
+            site: queryParamSite || '',
+            section: lpTag.section || '',
+            autoStart: lpTag.autoStart === false ? false : true,
+            ovr: lpTag.ovr || {domain: 'tlv_plankton3.dev.lprnd.net', tagjs: 'tlv_plankton4.dev.lprnd.net'},
+            _v: '1.5.1',
+            _tagCount: 1,
+            protocol: location.protocol,
+            events: {
+                bind: function (app, ev, fn) {
+                    lpTag.defer(function () {
+                        lpTag.events.bind(app, ev, fn)
+                    }, 0)
+                }, trigger: function (app, ev, json) {
+                    lpTag.defer(function () {
+                        lpTag.events.trigger(app, ev, json)
+                    }, 1)
+                }
+            },
+            defer: function (fn, fnType) {
+                if (fnType == 0) {
+                    this._defB = this._defB || [];
+                    this._defB.push(fn)
+                } else if (fnType == 1) {
+                    this._defT = this._defT || [];
+                    this._defT.push(fn)
+                } else {
+                    this._defL = this._defL || [];
+                    this._defL.push(fn)
+                }
+            },
+            load: function (src, chr, id) {
+                var t = this;
+                setTimeout(function () {
+                    t._load(src, chr, id)
+                }, 0)
+            },
+            _load: function (src, chr, id) {
+                var url = src;
+                if (!src) {
+                    url = this.protocol + '//' + ((this.ovr && this.ovr.domain) ? this.ovr.domain : 'lptag.liveperson.net') + '/tag/tag.js?site=' + this.site
+                }
+                var s = document.createElement('script');
+                s.setAttribute('charset', chr ? chr : 'UTF-8');
+                if (id) {
+                    s.setAttribute('id', id)
+                }
+                s.setAttribute('src', url);
+                document.getElementsByTagName('head').item(0).appendChild(s)
+            },
+            init: function () {
+                this._timing = this._timing || {};
+                this._timing.start = (new Date()).getTime();
+                var that = this;
+                if (window.attachEvent) {
+                    window.attachEvent('onload', function () {
+                        that._domReady('domReady')
+                    })
+                } else {
+                    window.addEventListener('DOMContentLoaded', function () {
+                        that._domReady('contReady')
+                    }, false);
+                    window.addEventListener('load', function () {
+                        that._domReady('domReady')
+                    }, false)
+                }
+                if (typeof(window._lptStop) == 'undefined') {
+                    this.load()
+                }
+            },
+            start: function () {
+                this.autoStart = true
+            },
+            _domReady: function (n) {
+                if (!this.isDom) {
+                    this.isDom = true;
+                    this.events.trigger('LPT', 'DOM_READY', {t: n})
+                }
+                this._timing[n] = (new Date()).getTime()
+            },
+            vars: lpTag.vars || [],
+            dbs: lpTag.dbs || [],
+            ctn: lpTag.ctn || [],
+            sdes: lpTag.sdes || [],
+            ev: lpTag.ev || []
+        };
+        lpTag.init()
+    } else {
+        window.lpTag._tagCount += 1
     }
-}
-else {
-    $("#lp_btn_login").click(function () {
-	var url = "https://ec2-52-16-155-233.eu-west-1.compute.amazonaws.com:1980";
-	var username = $("#lp_username").val();
-
-	$.ajax(url + "/generateSsoKey?rt=json&username=" + username, {
-	    type: 'get',
-	    error: function (XMLHttpRequest, textStatus, errorThrown) {
-
-
-	    },
-	    success: function (ssoData) {
-
-		window.location.href = updateQueryStringParameter(window.location.href, "username", username);
-	    }
-	});
-
-
-	function updateQueryStringParameter(uri, key, value) {
-	    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-	    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
-	    if (uri.match(re)) {
-		return uri.replace(re, '$1' + key + "=" + value + '$2');
-	    }
-	    else {
-		return uri + separator + key + "=" + value;
-	    }
-	}
-    });
-}
-
-
-
+    <!-- END LivePerson Monitor. -->
 </script>
-    </body>
-    </html>
+
+</body>
+</html>
