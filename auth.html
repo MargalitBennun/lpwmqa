@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0">
+    <title>Web Messaging Demo Page</title>
+  </head>
+  <body>
+<script>
+    function getURLParams(search) {
+        var queryParams = {}, queryArray, singleQuery;
+        queryArray = search.substr(1).split("&");
+        for (var i = 0; i < queryArray.length; i++) {
+            if (queryArray[i].indexOf("=") > -0) {
+                singleQuery = queryArray[i].split("=");
+                if (singleQuery.length == 2) {
+                    queryParams[decodeURIComponent(singleQuery[0])] = decodeURIComponent(singleQuery[1]);
+                }
+            }
+        }
+        return queryParams;
+    }
+
+    window.doLogIn = function() {
+        var visitorName = document.getElementById("visitorNameForUMSAuth").value;
+
+        var queryParams = getURLParams(window.location.search);
+        if(!visitorName) {
+            visitorName = queryParams.client_id
+        }
+        window.location.href = queryParams.redirect_uri + "&code=" + visitorName;
+    }
+
+</script>
+
+Visitor name for authentication: <input style="border: solid 2px #000" id="visitorNameForUMSAuth" type="text">
+<button id="authButton" style="font-size: 15px;" onclick="doLogIn()">Login!</button></div>
+</body>
+</html>
