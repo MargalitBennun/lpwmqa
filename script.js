@@ -1,21 +1,3 @@
-function getURLParams(search) {
-    var queryParams = {}, queryArray, singleQuery;
-    queryArray = search.substr(1).split("&");
-    for (var i = 0; i < queryArray.length; i++) {
-        if (queryArray[i].indexOf("=") > -0) {
-            singleQuery = queryArray[i].split("=");
-            if (singleQuery.length == 2) {
-                queryParams[decodeURIComponent(singleQuery[0])] = decodeURIComponent(singleQuery[1]);
-            }
-        }
-    }
-    return queryParams;
-}
-
-var queryParamSite = getURLParams(window.location.search).site;
-
-var site = getURLParams(window.location.search).site || "";
-var username = getURLParams(window.location.search).username || "";
 var url = "https://ec2-52-16-155-233.eu-west-1.compute.amazonaws.com:1980";
 
 if (site) {
