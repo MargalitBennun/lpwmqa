@@ -135,7 +135,33 @@
         <p>
             Username: <input id="lp_username" required>
         </p>
-        <button id="lp_btn_login" type="submit">Login</button>
+
+        <p>
+            <button id="lp_btn_login" type="submit">Login</button>
+        </p>
+
+        <div id="lp_account_setup">
+            <a id="lp_lnk_setup" href="javascript:void(0)" onclick="">
+                How do I setup my account?
+            </a>
+
+            <div id="lp_account_setup_description">
+                <p>
+                    The following configuration is the default in data sources authentication server configuration. It
+                    can
+                    be changed if needed:</p>
+                <code>
+                    <b>Authentication
+                        endpoint:</b><br/><textarea>https://vx-lp.github.io/lpwmqa/auth.html</textarea><br/><br/>
+                    <b>Token endpoint:</b><br/>
+                    <textarea>https://exampleauth.cloud.lprnd.net:1980/authenticate</textarea>
+                    <br/><br/>
+                    <b>JWT public key:</b><br/><textarea rows="11">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA/lnYC8lHMdEJz74m2WHrK8ndDE3LDto1xZ8HlyOwLWZWkvy71t43zzyMD1cpDfsymv6fSZSfP1NkwF6k9eTWRMYaK0TVivmAXdL4GoO/87XpPiEPn/lxICWL4VTJN/ju1by+h4qVlcpevJic4ZEK5PXF1vhHqlawPcm/IsWRcYAkFb/Mk84d+i7+OQ7NK0ouqb1T57ijUUGTQEqpzLLoTWZ7wjlWnyteuHx2OtRwskfH/3U7A7GP9STFZDC0yyDh7bj9DSuI4ScQWhmXMRy9OT/vxvJBf+pNrlNqto+dxNwJtSPKUQ0cnugdiI2mzw40HRtyQxzQONyuttdEMzMX6wIDAQAB/lnYC8lHMdEJz74m2WHrK8ndDE3LDto1xZ8HlyOwLWZWkvy71t43zzyMD1cpDfsymv6fSZSfP1NkwF6k9eTWRMYaK0TVivmAXdL4GoO/87XpPiEPn/lxICWL4VTJN/ju1by+h4qVlcpevJic4ZEK5PXF1vhHqlawPcm/IsWRcYAkFb/Mk84d+i7+OQ7NK0ouqb1T57ijUUGTQEqpzLLoTWZ7wjlWnyteuHx2OtRwskfH/3U7A7GP9STFZDC0yyDh7bj9DSuI4ScQWhmXMRy9OT/vxvJBf+pNrlNqto+dxNwJtSPKUQ0cnugdiI2mzw40HRtyQxzQONyuttdEMzMX6wIDAQAB</textarea><br/><br/>
+                    <b>JS method name:</b><br/><textarea>LPJsMethodName</textarea><br/><br/>
+                    <b>JS context:</b><br/><textarea>LPJsContext</textarea><br/>
+                </code>
+            </div>
+        </div>
     </form>
 </section>
 <footer>
