@@ -1,4 +1,4 @@
-var url = "https://ec2-52-16-155-233.eu-west-1.compute.amazonaws.com:1980";
+var url = "https://exampleauth.cloud.lprnd.net:1980";
 
 if (site) {
     $("#lp_account").attr("disabled", "disabled");
@@ -43,7 +43,7 @@ if (site && username) {
 else {
     $("#lp_form").submit(function (e) {
         e.preventDefault();
-        var url = "https://ec2-52-16-155-233.eu-west-1.compute.amazonaws.com:1980";
+        var url = "https://exampleauth.cloud.lprnd.net:1980";
         var site = $("#lp_account").val();
         var username = $("#lp_username").val();
         var href;
