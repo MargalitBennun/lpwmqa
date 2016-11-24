@@ -22,12 +22,32 @@
 
     window.doLogIn = function () {
         var visitorName = document.getElementById("visitorNameForUMSAuth").value;
+        var url = "https://exampleauth.cloud.lprnd.net:1980";
 
         var queryParams = getURLParams(window.location.search);
         if (!visitorName) {
             visitorName = queryParams.client_id
         }
-        window.location.href = queryParams.redirect_uri + "&code=" + visitorName;
+
+        $.ajax({
+            url: url + '/login',
+            contentType: "application/json",
+            data: {
+                username: visitorName
+            },
+            success: function (data) {
+                $.ajax(url + "/generateSsoKey?rt=json&username=" + visitorName, {
+                    type: 'get',
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                    },
+                    success: function (ssoData) {
+                        window.location.href = queryParams.redirect_uri + "&code=" + ssoData.ssoKey;
+
+                    }
+                });
+            }
+        });
     }
 
 </script>
